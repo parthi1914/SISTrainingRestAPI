@@ -20,6 +20,54 @@ namespace SISTrainingRestAPI
             _context = context;
         }
 
+
+        // GET: api/TrainingStudents
+        [HttpGet("GetTrainingStudentsByProcedure")]
+        public async Task<ActionResult<IEnumerable<TrainingStudent>>> GetTrainingStudentsByProcedure()
+        {
+            if (_context.TrainingStudents == null)
+            {
+                return NotFound();
+            }
+            var stdList =   _context.TrainingStudents.FromSql($"EXECUTE dbo.GetTrainingStudents").ToList();
+
+            return stdList;
+        }
+
+
+        // GET: api/TrainingStudents
+        [HttpGet("GetTrainingStudentsByProcedureParam")]
+        public async Task<ActionResult<IEnumerable<TrainingStudent>>> GetTrainingStudentsByProcedureParam()
+        {
+            if (_context.TrainingStudents == null)
+            {
+                return NotFound();
+            }
+
+            int StdId = 1;
+            var stdList = _context.TrainingStudents.FromSql($"EXECUTE dbo.GetTrainingStudentsByParam {StdId}").ToList();
+
+            return stdList;
+        }
+
+
+        // GET: api/SaveTrainingStudents
+        [HttpPost("SaveTrainingStudents")]
+        public async Task<ActionResult<IEnumerable<TrainingStudent>>> SaveTrainingStudents()
+        {
+            if (_context.TrainingStudents == null)
+            {
+                return NotFound();
+            }
+            string Name = "Akil";
+            int StaffId = 1;
+
+           
+            var stdList = _context.Database.ExecuteSql($"dbo.SaveTrainingStudents @Name={Name},@StaffId={StaffId}");
+            return _context.TrainingStudents;
+        }
+
+
         // GET: api/TrainingStudents
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TrainingStudent>>> GetTrainingStudents()

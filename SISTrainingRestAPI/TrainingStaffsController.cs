@@ -28,6 +28,21 @@ namespace SISTrainingRestAPI
           {
               return NotFound();
           }
+
+            var products = _context.TrainingStaffs
+                            .FromSql($"EXECUTE dbo.GetSTrainingstaff")
+                            .ToList();
+            int staffid = 1;
+            var products1 = _context.TrainingStaffs
+                           .FromSql($"EXECUTE dbo.GetSTrainingstaffById {staffid}")
+                           .ToList();
+            staffid = 3;
+            string StaffName = "Rinku";
+            string Course = "Algos";
+            string Email = "Rinku@gmail.com";
+            _context.Database.ExecuteSql($"dbo.SaveStaffByparams @StaffId = {staffid},@StaffName= {StaffName},@Course = {Course},@Email = {Email}");
+
+
             return await _context.TrainingStaffs.ToListAsync();
         }
 
