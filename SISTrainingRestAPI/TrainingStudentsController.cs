@@ -68,6 +68,11 @@ namespace SISTrainingRestAPI
         }
 
 
+     
+
+
+
+
         // GET: api/TrainingStudents
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TrainingStudent>>> GetTrainingStudents()

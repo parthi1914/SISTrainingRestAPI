@@ -148,5 +148,22 @@ namespace SISTrainingRestAPI
         {
             return (_context.TrainingStaffs?.Any(e => e.StaffId == id)).GetValueOrDefault();
         }
+
+
+        // GET: api/SaveTrainingStudents
+        [HttpPut("UpdateTrainingStaff")]
+        public async Task<ActionResult<IEnumerable<TrainingStaff>>> UpdateTrainingStaff()
+        {
+           
+            string Course = "New Update C#";
+            int StaffId = 2;
+            string StaffName = "Victor";
+
+
+            var stdList = _context.Database.ExecuteSql($"dbo.UpdateTrainingStaff @Id={StaffId},@StaffName={StaffName},@course={Course}");
+            return _context.TrainingStaffs;
+        }
+
+
     }
 }
