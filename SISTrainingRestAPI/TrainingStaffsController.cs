@@ -20,8 +20,32 @@ namespace SISTrainingRestAPI
             _context = context;
         }
 
+
         // GET: api/TrainingStaffs
-        [HttpGet]
+        [HttpGet("GetTrainingStaffStudents")]
+        public async Task<ActionResult<IEnumerable<Object>>> GetTrainingStaffStudents()
+        {
+            if (_context.TrainingStaffs == null)
+            {
+                return NotFound();
+            }
+
+            var result = from staffs in _context.TrainingStaffs
+                         join stds in _context.TrainingStudents
+                         on staffs.StaffId equals stds.StaffId
+                         select new TrainingOutput{ StudentId = stds.Id,
+                                                    StudentName = stds.Name,
+                                                    StaffId = stds.StaffId.Value,
+                                                    Course = staffs.Course,
+                                                    StaffName = staffs.StaffName,
+                                                    Email = staffs.Email
+                         };
+
+            return result.ToList();
+        }
+
+            // GET: api/TrainingStaffs
+            [HttpGet]
         public async Task<ActionResult<IEnumerable<TrainingStaff>>> GetTrainingStaffs()
         {
           if (_context.TrainingStaffs == null)
