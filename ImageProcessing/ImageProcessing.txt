@@ -1,0 +1,7 @@
+﻿ CRUD Image processing:
+ 
+ Save the Image and Save the Image properties into DB 
+ Get the image by using ID 
+ Get all the Images
+ Update the image 
+ Delete the Image .

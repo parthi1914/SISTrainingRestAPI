@@ -10,29 +10,29 @@ namespace CSharpPractices
     class LooslyCoupled
     {
 
-        static void Main(string[] args)
+        //static void Main(string[] args)
 
-        {
-            PrivateCompany objPrivateCompany = new PrivateCompany();
+        //{
+        //    PrivateCompany objPrivateCompany = new PrivateCompany();
 
-            PublicCompany objPublicCompany = new PublicCompany();
+        //    PublicCompany objPublicCompany = new PublicCompany();
 
-            VendorCompany objVendorCompany = new VendorCompany();
-
-
-            //PrivateCompany class  object
-            constructorinjection constructorinjectionPrivate = new constructorinjection(objPrivateCompany);
-
-            constructorinjectionPrivate.GetEmployee();
-            //PublicCompany  class object
-            constructorinjection constructorinjectionPublic = new constructorinjection(objPublicCompany);
-
-            constructorinjectionPublic.GetEmployee();
+        //    VendorCompany objVendorCompany = new VendorCompany();
 
 
-            constructorinjection constructorinjectionVendor = new constructorinjection(objVendorCompany);
-            constructorinjectionVendor.GetEmployee();
-        }
+        //    //PrivateCompany class  object
+        //    constructorinjection constructorinjectionPrivate = new constructorinjection(objPrivateCompany);
+
+        //    constructorinjectionPrivate.GetEmployee();
+        //    //PublicCompany  class object
+        //    constructorinjection constructorinjectionPublic = new constructorinjection(objPublicCompany);
+
+        //    constructorinjectionPublic.GetEmployee();
+
+
+        //    constructorinjection constructorinjectionVendor = new constructorinjection(objVendorCompany);
+        //    constructorinjectionVendor.GetEmployee();
+        //}
     }
 
     public class constructorinjection
