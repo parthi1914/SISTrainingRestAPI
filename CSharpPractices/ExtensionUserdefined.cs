@@ -8,18 +8,18 @@ namespace CSharpPractices
 {
      class ExtensionUserdefined
     {
-        static void Main(string[] args)
+        //static void Main(string[] args)
 
-        {
-            Geek geek = new Geek();
+        //{
+        //    Geek geek = new Geek();
 
-            geek.M1();
-            geek.M2();
-            geek.M3();
-            geek.M4();
-            geek.M5("this");
+        //    geek.M1();
+        //    geek.M2();
+        //    geek.M3();
+        //    geek.M4();
+        //    geek.M5("this");
 
-        }
+        //}
 
         }
 
