@@ -8,13 +8,13 @@ namespace CSharpPractices
 {
      class ASyncProgramming
     {
-        static void Main(string[] args)
-        {
+        //static void Main(string[] args)
+        //{
 
-            Demo();
-            Console.ReadLine();
+        //    Demo();
+        //    Console.ReadLine();
 
-        }
+        //}
 
         public static void Demo()
         {
